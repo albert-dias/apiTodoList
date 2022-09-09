@@ -1,6 +1,8 @@
 import { DataSource } from "typeorm";
+import { Category } from "../entities/Category";
 import { User } from "../entities/User";
 import { CreateUser1662380904306 } from "./migrations/1662380904306-CreateUser";
+import { CreateCategories1662639398292 } from "./migrations/1662639398292-CreateCategories";
 
 const dataSource = new DataSource({
     type: "postgres",
@@ -10,9 +12,11 @@ const dataSource = new DataSource({
     database: "tododb",
     entities: [
         User,
+        Category,
     ],
     migrations: [
         CreateUser1662380904306,
+        CreateCategories1662639398292,
     ],
 });
 
