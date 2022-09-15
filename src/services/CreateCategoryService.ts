@@ -2,7 +2,7 @@ import { Repository } from "typeorm";
 import dataSource from "../database";
 import { Category } from "../entities/Category";
 
-interface IUser {
+interface IRequest {
     name: string;
     color: string;
 }
@@ -17,7 +17,7 @@ class CreateCategoryService {
     public async execute({
         name,
         color,
-    }: IUser): Promise<Category>{
+    }: IRequest): Promise<Category>{
         if(!name  || !color) {
             throw new Error("Dados incompletos");
         }

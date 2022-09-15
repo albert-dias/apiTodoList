@@ -3,7 +3,7 @@ import dataSource from "../database";
 import { User } from "../entities/User";
 import { hash } from "bcryptjs";
 
-interface IUser {
+interface IRequest {
     name: string;
     email: string;
     password: string;
@@ -20,7 +20,7 @@ class CreateUserService {
         name,
         email,
         password
-    }: IUser): Promise<User>{
+    }: IRequest): Promise<User>{
         if(!name || !email || !password) {
             throw new Error("Dados incompletos");
         }
