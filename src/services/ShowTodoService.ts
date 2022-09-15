@@ -25,8 +25,12 @@ class ShowTodoService {
 
 
 
-        const todo = await this.todosRepository.findOne({where: {id}});
+        const todo = await this.todosRepository.findOne({
+            where: {id},
+            relations:['category', 'user']
+        });
 
+        delete todo.user.password
 
         return todo;
     }
